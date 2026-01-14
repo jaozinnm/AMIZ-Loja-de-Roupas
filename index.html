@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMIZ • Loja Online</title>
+  <meta name="description" content="AMIZ - moda com curadoria. Novidades, categorias e ofertas. Compre pelo WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Frete grátis acima de R$ 199 • Troca fácil • Atendimento no WhatsApp</span>
+      <span class="topbar-right">AMIZ</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="topo">
+    <div class="container header-inner">
+      <button class="icon-btn burger" id="burger" aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+      <a class="logo" href="#topo" aria-label="AMIZ - Início">
+        <img src="./assets/logo.jpg" alt="AMIZ" onerror="this.style.display='none'">
+        <span class="logo-text">AMIZ</span>
+      </a>
+
+      <div class="search">
+        <span class="search-ico">⌕</span>
+        <input id="searchInput" type="text" placeholder="Estou procurando por vestidos, blusas, jeans..." />
+        <button class="search-btn" id="searchBtn">Buscar</button>
+      </div>
+
+      <div class="icons">
+        <button class="icon-btn" title="Minha conta" aria-label="Minha conta">👤</button>
+        <button class="icon-btn" title="Favoritos" aria-label="Favoritos">♡</button>
+        <button class="icon-btn cart" title="Carrinho" aria-label="Carrinho">
+          🛍️ <span class="badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- NAV DESKTOP -->
+    <nav class="nav container" aria-label="Categorias">
+      <a class="nav-hot" href="#ofertas">Liquida</a>
+      <a href="#feminino">Feminino</a>
+      <a href="#acessorios">Acessórios</a>
+      <a href="#novidades">Novidades</a>
+      <a href="#colecao">Coleções</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <!-- NAV MOBILE DRAWER -->
+    <div class="drawer" id="drawer">
+      <div class="drawer-head">
+        <strong>Categorias</strong>
+        <button class="icon-btn" id="closeDrawer" aria-label="Fechar">✕</button>
+      </div>
+
+      <a class="drawer-link nav-hot" href="#ofertas">Liquida</a>
+      <a class="drawer-link" href="#feminino">Feminino</a>
+      <a class="drawer-link" href="#acessorios">Acessórios</a>
+      <a class="drawer-link" href="#novidades">Novidades</a>
+      <a class="drawer-link" href="#colecao">Coleções</a>
+      <a class="drawer-link" href="#contato">Contato</a>
+
+      <div class="drawer-cta">
+        <a class="btn" target="_blank"
+           href="https://wa.me/558199699995?text=Ol%C3%A1!%20Quero%20atendimento%20na%20AMIZ.">Atendimento WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+  </header>
+
+  <!-- HERO / CAROUSEL (com suas imagens reais) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="carousel" id="carousel">
+        <div class="slides" id="slides">
+
+          <!-- Slide 1: Black November -->
+          <article class="slide active">
+            <div class="slide-media">
+              <img src="./assets/IMG_0037.jpg" alt="Black November AMIZ">
+            </div>
+            <div class="slide-content">
+              <p class="chip chip-light">Black November</p>
+              <h1>AMIZ • Ofertas especiais</h1>
+              <p>Peças selecionadas com condições exclusivas. Garanta seu look com atendimento rápido.</p>
+              <div class="slide-actions">
+                <a class="btn" href="#ofertas">Conferir ofertas</a>
+                <a class="btn btn-ghost" target="_blank"
+                   href="https://wa.me/558199699995?text=Ol%C3%A1!%20Quero%20ver%20as%20ofertas%20da%20AMIZ.">Pedir no WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 2: Look claro -->
+          <article class="slide">
+            <div class="slide-media">
+              <img src="./assets/IMG_0032.jpg" alt="Look AMIZ - Vestido claro">
+            </div>
+            <div class="slide-content">
+              <p class="chip">Nova coleção</p>
+              <h1>Curadoria que veste você</h1>
+              <p>Elegância, caimento e peças fáceis de combinar — do casual ao evento.</p>
+              <div class="slide-actions">
+                <a class="btn" href="#novidades">Ver novidades</a>
+                <a class="btn btn-ghost" href="#colecao">Explorar coleção</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 3: Look vinho -->
+          <article class="slide">
+            <div class="slide-media">
+              <img src="./assets/IMG_0033.jpg" alt="Look AMIZ - Conjunto vinho">
+            </div>
+            <div class="slide-content">
+              <p class="chip">Tons da estação</p>
+              <h1>Vinho, clássico e marcante</h1>
+              <p>Peças premium com identidade AMIZ — detalhes que elevam o look.</p>
+              <div class="slide-actions">
+                <a class="btn" href="#feminino">Ver Feminino</a>
+                <a class="btn btn-ghost" href="#acessorios">Ver acessórios</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <button class="car-btn prev" id="prev" aria-label="Anterior">‹</button>
+        <button class="car-btn next" id="next" aria-label="Próximo">›</button>
+        <div class="dots" id="dots" aria-label="Indicadores do carrossel"></div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="side-card">
+          <h3>Compre com assistência</h3>
+          <p class="muted">Te ajudamos a escolher tamanho e montar combinações.</p>
+          <a class="btn btn-ghost full" target="_blank"
+             href="https://wa.me/558199699995?text=Ol%C3%A1!%20Quero%20ajuda%20para%20escolher%20um%20look%20na%20AMIZ.">Chamar no WhatsApp</a>
+        </div>
+
+        <div class="side-card light">
+          <h3>AMIZ • Boutique em Boa Viagem</h3>
+          <p class="muted">Curadoria, peças premium e atendimento rápido.</p>
+          <a class="link" href="#contato">Ver endereço →</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- STRIP BENEFITS -->
+  <section class="strip">
+    <div class="container strip-grid">
+      <div class="strip-item"><strong>✨ Curadoria</strong><span>peças selecionadas</span></div>
+      <div class="strip-item"><strong>🚚 Envio</strong><span>sob consulta</span></div>
+      <div class="strip-item"><strong>🧵 Qualidade</strong><span>acabamento premium</span></div>
+      <div class="strip-item"><strong>💬 Atendimento</strong><span>WhatsApp rápido</span></div>
+    </div>
+  </section>
+
+  <!-- FEMININO (âncora para nav) -->
+  <section class="section section-soft" id="feminino">
+    <div class="container">
+      <div class="section-head">
+        <h2>Feminino</h2>
+        <span class="muted">Looks versáteis com identidade AMIZ</span>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="product" data-name="Vestido Nude Bordado" data-price="189" data-cat="feminino"
+          data-img="./assets/IMG_0032.jpg">
+          <div class="pimg"><img src="./assets/IMG_0032.jpg" alt="Vestido Nude Bordado"></div>
+          <div class="pinfo">
+            <h3>Vestido Nude Bordado</h3>
+            <p class="muted">Elegante • Caimento premium</p>
+            <div class="prow">
+              <span class="price">R$ 189,00</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Conjunto Vinho" data-price="219" data-cat="feminino"
+          data-img="./assets/IMG_0033.jpg">
+          <div class="pimg"><img src="./assets/IMG_0033.jpg" alt="Conjunto Vinho"></div>
+          <div class="pinfo">
+            <h3>Conjunto Vinho</h3>
+            <p class="muted">Tendência • Sofisticado</p>
+            <div class="prow">
+              <span class="price">R$ 219,00</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Vestido Vermelho" data-price="199" data-cat="feminino"
+          data-img="./assets/IMG_0034.jpg">
+          <div class="pimg"><img src="./assets/IMG_0034.jpg" alt="Vestido Vermelho"></div>
+          <div class="pinfo">
+            <h3>Vestido Vermelho</h3>
+            <p class="muted">Clássico • Impactante</p>
+            <div class="prow">
+              <span class="price">R$ 199,00</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVIDADES (4 cards principais – vitrine) -->
+  <section class="section" id="novidades">
+    <div class="container">
+      <div class="section-head">
+        <h2>Novidades</h2>
+        <a class="link" href="#colecao">Ver tudo →</a>
+      </div>
+
+      <div class="grid" id="productsGrid">
+        <article class="product" data-name="Calça Alfaiataria Cenoura" data-price="189" data-cat="feminino"
+          data-img="./assets/IMG_0030.jpg">
+          <div class="pimg"><img src="./assets/IMG_0030.jpg" alt="Calça Alfaiataria Cenoura"></div>
+          <div class="pinfo">
+            <h3>Calça Alfaiataria Cenoura</h3>
+            <p class="muted">Azul/Bege/Off-white</p>
+            <div class="prow">
+              <span class="price">R$ 189,00</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Body Tom Neutro" data-price="129" data-cat="feminino"
+          data-img="./assets/IMG_0036.jpg">
+          <div class="pimg"><img src="./assets/IMG_0036.jpg" alt="Body Tom Neutro"></div>
+          <div class="pinfo">
+            <h3>Body Tom Neutro</h3>
+            <p class="muted">Consultar disponibilidade</p>
+            <div class="prow">
+              <span class="price">R$ 129,00</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Conjunto Crochê + Jeans" data-price="169" data-cat="feminino"
+          data-img="./assets/IMG_0038.jpg">
+          <div class="pimg"><img src="./assets/IMG_0038.jpg" alt="Conjunto Crochê + Jeans"></div>
+          <div class="pinfo">
+            <h3>Conjunto Crochê + Jeans</h3>
+            <p class="muted">Look casual • Verão</p>
+            <div class="prow">
+              <span class="price">R$ 169,00</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Conjuntos Listrados" data-price="199" data-cat="feminino"
+          data-img="./assets/IMG_0035.jpg">
+          <div class="pimg"><img src="./assets/IMG_0035.jpg" alt="Conjuntos Listrados"></div>
+          <div class="pinfo">
+            <h3>Conjuntos Listrados</h3>
+            <p class="muted">Alfaiataria • Premium</p>
+            <div class="prow">
+              <span class="price">R$ 199,00</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACESSÓRIOS (usa o close do bordado como “detalhes”) -->
+  <section class="section section-soft" id="acessorios">
+    <div class="container">
+      <div class="section-head">
+        <h2>Acessórios & Detalhes</h2>
+        <span class="muted">O diferencial está nos acabamentos</span>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="product" data-name="Detalhe Bordado Premium" data-price="0" data-cat="acessorios"
+          data-img="./assets/IMG_0031.jpg">
+          <div class="pimg"><img src="./assets/IMG_0031.jpg" alt="Detalhe Bordado Premium"></div>
+          <div class="pinfo">
+            <h3>Detalhe Bordado Premium</h3>
+            <p class="muted">Textura • Acabamento</p>
+            <div class="prow">
+              <span class="price">Consulte</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Editorial AMIZ" data-price="0" data-cat="acessorios"
+          data-img="./assets/IMG_0036 (1).jpg">
+          <div class="pimg"><img src="./assets/IMG_0036 (1).jpg" alt="Editorial AMIZ"></div>
+          <div class="pinfo">
+            <h3>Editorial AMIZ</h3>
+            <p class="muted">Estilo • Identidade</p>
+            <div class="prow">
+              <span class="price">Consulte</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product" data-name="Editorial AMIZ 02" data-price="0" data-cat="acessorios"
+          data-img="./assets/IMG_0036.jpg">
+          <div class="pimg"><img src="./assets/IMG_0036.jpg" alt="Editorial AMIZ 02"></div>
+          <div class="pinfo">
+            <h3>Look Neutro</h3>
+            <p class="muted">Básico premium</p>
+            <div class="prow">
+              <span class="price">Consulte</span>
+              <button class="add" type="button">Adicionar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTAS -->
+  <section class="section section-soft" id="ofertas">
+    <div class="container">
+      <div class="section-head">
+        <h2>Liquida AMIZ</h2>
+        <span class="muted">Seleção com desconto</span>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="deal">
+          <strong>Até 30% OFF</strong>
+          <span class="muted">peças selecionadas</span>
+        </div>
+        <div class="deal">
+          <strong>Compre 2</strong>
+          <span class="muted">e ganhe vantagens</span>
+        </div>
+        <div class="deal">
+          <strong>Atendimento</strong>
+          <span class="muted">WhatsApp rápido</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLEÇÃO / GALERIA (usa as imagens que sobram, fica lindo) -->
+  <section class="section" id="colecao">
+    <div class="container">
+      <div class="section-head">
+        <h2>Coleções</h2>
+        <span class="muted">Galeria AMIZ</span>
+      </div>
+
+      <div class="grid">
+        <article class="product" data-name="Coleção AMIZ 01" data-price="0" data-cat="colecao" data-img="./assets/IMG_0032.jpg">
+          <div class="pimg"><img src="./assets/IMG_0032.jpg" alt="Coleção AMIZ 01"></div>
+          <div class="pinfo"><h3>Coleção AMIZ 01</h3><p class="muted">Editorial</p></div>
+        </article>
+
+        <article class="product" data-name="Coleção AMIZ 02" data-price="0" data-cat="colecao" data-img="./assets/IMG_0033.jpg">
+          <div class="pimg"><img src="./assets/IMG_0033.jpg" alt="Coleção AMIZ 02"></div>
+          <div class="pinfo"><h3>Coleção AMIZ 02</h3><p class="muted">Tons vinho</p></div>
+        </article>
+
+        <article class="product" data-name="Coleção AMIZ 03" data-price="0" data-cat="colecao" data-img="./assets/IMG_0034.jpg">
+          <div class="pimg"><img src="./assets/IMG_0034.jpg" alt="Coleção AMIZ 03"></div>
+          <div class="pinfo"><h3>Coleção AMIZ 03</h3><p class="muted">Vermelho clássico</p></div>
+        </article>
+
+        <article class="product" data-name="Coleção AMIZ 04" data-price="0" data-cat="colecao" data-img="./assets/IMG_0038.jpg">
+          <div class="pimg"><img src="./assets/IMG_0038.jpg" alt="Coleção AMIZ 04"></div>
+          <div class="pinfo"><h3>Coleção AMIZ 04</h3><p class="muted">Casual & verão</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section" id="contato">
+    <div class="container contact">
+      <div class="contact-card">
+        <h2>Atendimento</h2>
+        <p class="muted">Fale com a AMIZ e finalize pedidos pelo WhatsApp.</p>
+        <div class="contact-actions">
+          <a class="btn" target="_blank"
+             href="https://wa.me/558199699995?text=Ol%C3%A1!%20Quero%20atendimento%20na%20AMIZ.">WhatsApp</a>
+          <a class="btn btn-ghost" href="mailto:contato@amiz.com">E-mail</a>
+        </div>
+        <p class="muted small">Seg–Sáb • 10h–19h</p>
+      </div>
+
+      <div class="contact-card">
+        <h2>Galeria San Rafael Center</h2>
+        <p class="muted">R. dos Navegantes, 691 - Boa Viagem, Recife - PE, 51020-010, Brasil</p>
+        <iframe class="map"
+          src="https://www.google.com/maps?q=R.%20dos%20Navegantes%2C%20691%20-%20Boa%20Viagem%2C%20Recife%20-%20PE%2C%2051020-010%2C%20Brasil&output=embed"
+          loading="lazy"
+          style="border:0;"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> AMIZ • Loja Online</span>
+      <a class="link" href="#topo">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a class="wa-float" target="_blank"
+     href="https://wa.me/558199699995?text=Ol%C3%A1!%20Quero%20atendimento%20na%20AMIZ."
+     aria-label="WhatsApp">💬</a>
+
+  <!-- MODAL PRODUTO -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="icon-btn modal-close" id="modalClose" aria-label="Fechar">✕</button>
+
+      <div class="modal-grid">
+        <div class="modal-media"><img id="mImg" alt=""></div>
+        <div class="modal-content">
+          <h3 id="mTitle">Produto</h3>
+          <p class="muted" id="mDesc">Peça com acabamento premium e caimento confortável.</p>
+          <div class="modal-row">
+            <div class="pill"><strong>Preço:</strong> <span id="mPrice"></span></div>
+            <div class="pill"><strong>Tamanho:</strong> P/M/G</div>
+          </div>
+          <div class="modal-actions">
+            <a class="btn" id="mWhats" target="_blank">Comprar no WhatsApp</a>
+            <button class="btn btn-ghost" id="modalBack" type="button">Voltar</button>
+          </div>
+          <p class="muted small">*Valores são exemplo. Ajuste como quiser.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
