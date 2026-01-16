@@ -452,3 +452,38 @@ a{text-decoration:none;color:inherit}
   .logo-text{display:none}
   .grid{grid-template-columns: 1fr}
 }
+
+
+/* WhatsApp float (safe area iPhone) */
+.wa-float{
+  bottom:calc(16px + env(safe-area-inset-bottom));
+}
+
+/* Toast (feedback rapido no mobile) */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:calc(18px + env(safe-area-inset-bottom));
+  transform:translateX(-50%) translateY(16px);
+  background:rgba(20,16,20,.92);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.92rem;
+  box-shadow: 0 18px 40px rgba(0,0,0,.22);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease;
+  z-index:999;
+}
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* Melhor layout do header no celular */
+@media (max-width: 520px){
+  .header-inner{grid-template-columns: 44px 1fr 120px}
+  .search{grid-column:1 / -1; margin-top:10px}
+}
