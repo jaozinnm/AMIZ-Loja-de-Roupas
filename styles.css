@@ -18,9 +18,10 @@
 html{scroll-behavior:smooth}
 body{
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background: radial-gradient(1200px 500px at 10% -10%, rgba(123,0,63,.12), transparent 60%),
-              radial-gradient(900px 500px at 90% 0%, rgba(123,0,63,.08), transparent 60%),
-              var(--bg);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(123,0,63,.12), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, rgba(123,0,63,.08), transparent 60%),
+    var(--bg);
   color:var(--text);
   line-height:1.55;
 }
@@ -32,7 +33,9 @@ a{text-decoration:none;color:inherit}
 .link:hover{text-decoration:underline}
 .small{font-size:.92rem}
 
-/* Topbar */
+/* =========================
+   TOPBAR
+========================= */
 .topbar{
   background: linear-gradient(90deg, var(--brand-dark), var(--brand));
   color:#fff;
@@ -43,56 +46,50 @@ a{text-decoration:none;color:inherit}
   padding:10px 0;
   gap:12px;
 }
+.topbar-inner span{white-space:nowrap}
+.topbar-inner span:first-child{
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
 .topbar-right{opacity:.85;font-weight:700;letter-spacing:.08em}
 
-/* Header */
+/* =========================
+   HEADER (mobile-first)
+========================= */
 .header{
   background: rgba(247,244,246,.82);
   backdrop-filter: blur(10px);
   position:sticky; top:0; z-index:50;
   border-bottom:1px solid var(--line);
 }
+
 .header-inner{
   display:grid;
-  grid-template-columns: 52px 180px 1fr 170px;
+  grid-template-columns: 44px 1fr auto;
   align-items:center;
-  gap:14px;
-  padding:14px 0;
+  gap:10px;
+  padding:12px 0;
 }
 
-.logo{display:flex;align-items:center;gap:10px}
-.logo img{height:40px;width:auto;border-radius:12px}
+.burger{font-size:18px}
+.logo{display:flex;align-items:center;gap:10px; min-width:0}
+.logo img{height:38px;width:auto;border-radius:12px}
 .logo-text{
-  font-weight:800; letter-spacing:.08em;
-  color:var(--brand);
-}
-
-.search{
-  display:flex;align-items:center;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:999px;
-  overflow:hidden;
-  box-shadow: 0 6px 22px rgba(20,16,20,.06);
-}
-.search-ico{padding:0 12px;color:#777}
-.search input{
-  width:100%;
-  border:0; outline:0;
-  padding:12px 8px;
-  font-size:1rem;
-  background:transparent;
-}
-.search-btn{
-  border:0; cursor:pointer;
-  padding:12px 16px;
   font-weight:800;
-  color:#fff;
-  background: var(--brand);
+  letter-spacing:.08em;
+  color:var(--brand);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
-.search-btn:hover{background:var(--brand-dark)}
 
-.icons{display:flex;justify-content:flex-end;align-items:center;gap:8px}
+.icons{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:8px;
+}
+
 .icon-btn{
   border:1px solid var(--line);
   background:#fff;
@@ -115,28 +112,41 @@ a{text-decoration:none;color:inherit}
   border:2px solid var(--bg);
 }
 
-.burger{font-size:18px}
-
-/* Nav */
-.nav{
-  display:flex;gap:18px;align-items:center;
-  padding:10px 0 14px;
-}
-.nav a{
-  color:#2a2229;
-  font-weight:600;
-  font-size:.95rem;
-  padding:8px 10px;
+/* Search vira “linha de baixo” no mobile */
+.search{
+  grid-column: 1 / -1;
+  display:flex;
+  align-items:center;
+  background:#fff;
+  border:1px solid var(--line);
   border-radius:999px;
+  overflow:hidden;
+  box-shadow: 0 6px 22px rgba(20,16,20,.06);
 }
-.nav a:hover{background: var(--brand-soft); color:var(--brand)}
-.nav-hot{
-  color: var(--brand) !important;
-  border:1px solid rgba(123,0,63,.22);
-  background: rgba(123,0,63,.06);
+.search-ico{padding:0 12px;color:#777;flex:0 0 auto}
+.search input{
+  width:100%;
+  border:0; outline:0;
+  padding:12px 8px;
+  font-size:1rem;
+  background:transparent;
+  min-width:0;
 }
+.search-btn{
+  border:0; cursor:pointer;
+  padding:12px 14px;
+  font-weight:800;
+  color:#fff;
+  background: var(--brand);
+}
+.search-btn:hover{background:var(--brand-dark)}
 
-/* Drawer */
+/* NAV desktop escondida por padrão (aparece no desktop) */
+.nav{display:none}
+
+/* =========================
+   DRAWER (mobile)
+========================= */
 .drawer{
   position:fixed;
   left:-320px; top:0; bottom:0;
@@ -170,7 +180,15 @@ a{text-decoration:none;color:inherit}
 }
 .drawer-overlay.show{display:block}
 
-/* Buttons */
+.nav-hot{
+  color: var(--brand) !important;
+  border:1px solid rgba(123,0,63,.22);
+  background: rgba(123,0,63,.06);
+}
+
+/* =========================
+   BUTTONS
+========================= */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
   padding:12px 16px;
@@ -190,14 +208,18 @@ a{text-decoration:none;color:inherit}
 .btn-ghost:hover{background: var(--brand-soft)}
 .full{width:100%}
 
-/* Hero */
-.hero{padding:18px 0 20px}
+/* =========================
+   HERO (mobile first)
+========================= */
+.hero{padding:14px 0 18px}
+
 .hero-grid{
   display:grid;
-  grid-template-columns: 1fr 340px;
-  gap:14px;
+  grid-template-columns: 1fr;
+  gap:12px;
   align-items:stretch;
 }
+
 .carousel{
   position:relative;
   background:#fff;
@@ -206,25 +228,32 @@ a{text-decoration:none;color:inherit}
   overflow:hidden;
   box-shadow: var(--shadow);
 }
+
 .slides{position:relative}
+
+/* No mobile: slide empilhado */
 .slide{
   display:none;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns: 1fr;
   align-items:stretch;
-  min-height: 360px;
 }
 .slide.active{display:grid}
 
-.slide-media{background: #eee}
-.slide-media img{width:100%;height:100%;object-fit:cover}
+.slide-media{background:#eee}
+.slide-media img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
 
 .slide-content{
-  padding:28px;
+  padding:16px;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
   gap:10px;
 }
+
 .chip{
   display:inline-flex;
   width:max-content;
@@ -241,15 +270,23 @@ a{text-decoration:none;color:inherit}
   border:1px solid rgba(123,0,63,.18);
 }
 .slide-content h1{
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
-  line-height:1.05;
+  font-size: clamp(1.35rem, 4.6vw, 2.2rem);
+  line-height:1.08;
 }
-.slide-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.slide-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+.slide-actions .btn{flex:1 1 180px}
 
+/* Botões do carrossel menores no mobile */
 .car-btn{
   position:absolute;
-  top:50%; transform:translateY(-50%);
-  width:44px;height:44px;border-radius:14px;
+  top:110px;
+  transform:translateY(-50%);
+  width:40px;height:40px;border-radius:14px;
   border:1px solid var(--line);
   background: rgba(255,255,255,.92);
   cursor:pointer;
@@ -261,7 +298,7 @@ a{text-decoration:none;color:inherit}
 
 .dots{
   position:absolute;
-  left:14px; bottom:12px;
+  left:14px; bottom:10px;
   display:flex; gap:8px;
 }
 .dot{
@@ -272,7 +309,8 @@ a{text-decoration:none;color:inherit}
 }
 .dot.active{background: var(--brand)}
 
-.hero-side{display:grid;gap:14px}
+/* Side cards */
+.hero-side{display:grid;gap:12px}
 .side-card{
   background:#fff;
   border:1px solid var(--line);
@@ -283,11 +321,13 @@ a{text-decoration:none;color:inherit}
 .side-card h3{margin-bottom:6px}
 .side-card.light{background: linear-gradient(180deg, #fff, var(--brand-soft));}
 
-/* Strip */
-.strip{padding:14px 0 6px}
+/* =========================
+   STRIP
+========================= */
+.strip{padding:12px 0 6px}
 .strip-grid{
   display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0,1fr));
   gap:10px;
 }
 .strip-item{
@@ -299,23 +339,31 @@ a{text-decoration:none;color:inherit}
 .strip-item strong{display:block;color:var(--brand)}
 .strip-item span{display:block;color:var(--muted);font-size:.92rem}
 
-/* Sections + grid products */
-.section{padding:26px 0}
+/* =========================
+   SECTIONS + PRODUCTS
+========================= */
+.section{padding:24px 0}
 .section-head{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  gap:12px;margin-bottom:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:12px;
+  margin-bottom:14px;
 }
+.section-head h2{font-size:1.25rem}
 .section-soft{
   background: linear-gradient(180deg, rgba(123,0,63,.05), transparent);
   border-top:1px solid rgba(123,0,63,.10);
   border-bottom:1px solid rgba(123,0,63,.10);
 }
+
+/* Grid: 2 col no mobile, 1 col no muito pequeno */
 .grid{
   display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0,1fr));
   gap:12px;
 }
-.grid-3{grid-template-columns: repeat(3, minmax(0,1fr));}
+.grid-3{grid-template-columns: repeat(2, minmax(0,1fr));}
 
 .product{
   background:#fff;
@@ -327,12 +375,22 @@ a{text-decoration:none;color:inherit}
   transition: transform .15s ease, border-color .15s ease;
 }
 .product:hover{transform: translateY(-3px); border-color: rgba(123,0,63,.25)}
-.pimg{height:210px;background:#eee}
+.pimg{height:190px;background:#eee}
 .pimg img{width:100%;height:100%;object-fit:cover}
 .pinfo{padding:12px}
-.pinfo h3{font-size:1rem;margin-bottom:4px}
-.prow{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
-.price{color:var(--brand); font-weight:900}
+.pinfo h3{
+  font-size:1rem;
+  margin-bottom:4px;
+  line-height:1.2;
+}
+.prow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:10px;
+  gap:10px;
+}
+.price{color:var(--brand); font-weight:900; white-space:nowrap}
 .add{
   border:1px solid rgba(123,0,63,.22);
   background: var(--brand-soft);
@@ -341,6 +399,7 @@ a{text-decoration:none;color:inherit}
   padding:8px 10px;
   border-radius: 12px;
   cursor:pointer;
+  white-space:nowrap;
 }
 .add:hover{background: rgba(123,0,63,.10)}
 
@@ -354,10 +413,12 @@ a{text-decoration:none;color:inherit}
 .deal strong{display:block;color:var(--brand);font-size:1.05rem}
 .deal span{display:block}
 
-/* Contact */
+/* =========================
+   CONTACT
+========================= */
 .contact{
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap:12px;
 }
 .contact-card{
@@ -370,32 +431,42 @@ a{text-decoration:none;color:inherit}
 .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
 .map{width:100%;height:260px;border-radius:14px}
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 .footer{
   margin-top:18px;
   border-top:1px solid var(--line);
   background:#fff;
 }
 .footer-inner{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:10px;flex-wrap:wrap;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
   padding:16px 0;
 }
 
-/* WhatsApp float */
+/* =========================
+   WHATSAPP FLOAT (safe-area)
+========================= */
 .wa-float{
   position:fixed;
   right:16px;
-  bottom:16px;
+  bottom:calc(16px + env(safe-area-inset-bottom));
   width:54px;height:54px;
   border-radius:18px;
   display:flex;align-items:center;justify-content:center;
   background: var(--brand);
   color:#fff;
   box-shadow: 0 18px 40px rgba(123,0,63,.22);
+  z-index:70;
 }
 
-/* Modal */
+/* =========================
+   MODAL (mobile first)
+========================= */
 .modal{display:none}
 .modal.show{display:block}
 .modal-overlay{
@@ -405,8 +476,9 @@ a{text-decoration:none;color:inherit}
 }
 .modal-card{
   position:fixed;
-  top:50%; left:50%;
-  transform: translate(-50%,-50%);
+  left:50%;
+  bottom:16px;
+  transform:translateX(-50%);
   width:min(980px,92%);
   background:#fff;
   border:1px solid var(--line);
@@ -414,12 +486,17 @@ a{text-decoration:none;color:inherit}
   box-shadow: var(--shadow);
   z-index:101;
   overflow:hidden;
+  max-height: calc(100dvh - 32px);
 }
 .modal-close{position:absolute; top:10px; right:10px}
-.modal-grid{display:grid; grid-template-columns: .9fr 1.1fr}
+.modal-grid{display:grid; grid-template-columns: 1fr}
 .modal-media{background:#eee}
-.modal-media img{width:100%;height:100%;object-fit:cover;aspect-ratio: 4/5}
-.modal-content{padding:18px}
+.modal-media img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+.modal-content{padding:16px}
 .modal-row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
 .pill{
   padding:10px 12px;
@@ -429,37 +506,11 @@ a{text-decoration:none;color:inherit}
   color:#2a2229;
 }
 .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.modal-actions .btn{flex:1 1 200px}
 
-/* Responsive */
-@media (max-width: 980px){
-  .header-inner{grid-template-columns: 52px 160px 1fr 150px}
-  .grid{grid-template-columns: repeat(3, minmax(0,1fr))}
-  .hero-grid{grid-template-columns: 1fr}
-  .slide{grid-template-columns: 1fr}
-  .slide-media{height:220px}
-  .strip-grid{grid-template-columns: repeat(2, minmax(0,1fr))}
-}
-@media (max-width: 780px){
-  .nav{display:none}
-  .search-btn{display:none}
-  .grid{grid-template-columns: repeat(2, minmax(0,1fr))}
-  .contact{grid-template-columns: 1fr}
-  .modal-grid{grid-template-columns: 1fr}
-  .modal-media img{aspect-ratio: 16/10}
-}
-@media (max-width: 520px){
-  .header-inner{grid-template-columns: 52px 1fr 1fr 120px}
-  .logo-text{display:none}
-  .grid{grid-template-columns: 1fr}
-}
-
-
-/* WhatsApp float (safe area iPhone) */
-.wa-float{
-  bottom:calc(16px + env(safe-area-inset-bottom));
-}
-
-/* Toast (feedback rapido no mobile) */
+/* =========================
+   TOAST
+========================= */
 .toast{
   position:fixed;
   left:50%;
@@ -482,8 +533,181 @@ a{text-decoration:none;color:inherit}
   transform:translateX(-50%) translateY(0);
 }
 
-/* Melhor layout do header no celular */
-@media (max-width: 520px){
-  .header-inner{grid-template-columns: 44px 1fr 120px}
-  .search{grid-column:1 / -1; margin-top:10px}
+/* =========================
+   DESKTOP BREAKPOINTS
+========================= */
+@media (min-width: 781px){
+  /* Header vira layout desktop */
+  .header-inner{
+    grid-template-columns: 52px 180px 1fr 170px;
+    gap:14px;
+    padding:14px 0;
+  }
+
+  .search{
+    grid-column:auto;
+  }
+
+  .nav{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    padding:10px 0 14px;
+  }
+  .nav a{
+    color:#2a2229;
+    font-weight:600;
+    font-size:.95rem;
+    padding:8px 10px;
+    border-radius:999px;
+  }
+  .nav a:hover{background: var(--brand-soft); color:var(--brand)}
+}
+
+@media (min-width: 981px){
+  /* Hero volta a 2 colunas */
+  .hero-grid{
+    grid-template-columns: 1fr 340px;
+    gap:14px;
+  }
+
+  /* Slide volta a lado a lado */
+  .slide{
+    grid-template-columns: 1.1fr .9fr;
+    min-height:360px;
+  }
+  .slide-media img{
+    height:100%;
+    min-height:360px;
+  }
+  .slide-content{padding:28px}
+
+  .car-btn{
+    top:50%;
+    transform:translateY(-50%);
+    width:44px;height:44px;
+  }
+
+  /* Grids desktop */
+  .grid{grid-template-columns: repeat(4, minmax(0,1fr))}
+  .grid-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+  .contact{grid-template-columns: 1fr 1fr}
+
+  /* Modal desktop */
+  .modal-card{
+    top:50%;
+    left:50%;
+    bottom:auto;
+    transform:translate(-50%,-50%);
+  }
+  .modal-grid{grid-template-columns: .9fr 1.1fr}
+  .modal-media img{
+    height:100%;
+    aspect-ratio: 4/5;
+  }
+}
+
+@media (max-width: 420px){
+  /* Muito pequeno: 1 coluna */
+  .grid{grid-template-columns: 1fr}
+  .grid-3{grid-template-columns: 1fr}
+  .topbar-inner span:last-child{display:none}
+  .icon-btn{padding:9px 10px}
+}
+
+
+/* =========================
+   PATCH TOPBAR (mobile)
+   cole no final do styles.css
+========================= */
+
+.topbar-inner{
+  min-width: 0;
+}
+
+.topbar-inner span:first-child{
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* Ajuste de altura e comportamento no mobile */
+@media (max-width: 780px){
+  .topbar{ font-size: .82rem; }
+  .topbar-inner{
+    padding: 8px 0;
+    justify-content: center;
+    gap: 0;
+  }
+
+  /* texto sempre em 1 linha com reticências */
+  .topbar-inner span:first-child{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  /* esconde o "AMIZ" da direita no mobile */
+  .topbar-right{
+    display: none;
+  }
+}
+
+/* Em telas MUITO pequenas, ainda mais compacto */
+@media (max-width: 420px){
+  .topbar{ font-size: .78rem; }
+  .topbar-inner{ padding: 7px 0; }
+}
+
+/* =========================
+   TOPBAR – MOBILE FRIENDLY
+   (não altera desktop)
+========================= */
+
+.topbar-inner{
+  min-width: 0;
+}
+
+.topbar-inner span:first-child{
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* Mobile */
+@media (max-width: 780px){
+  .topbar{
+    font-size: 0.82rem;
+  }
+
+  .topbar-inner{
+    padding: 8px 0;
+    justify-content: center;
+    text-align: center;
+    gap: 0;
+  }
+
+  /* Texto centralizado, 1 linha, sem quebrar */
+  .topbar-inner span:first-child{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Remove o "AMIZ" da direita no mobile */
+  .topbar-right{
+    display: none;
+  }
+}
+
+/* Telas MUITO pequenas */
+@media (max-width: 420px){
+  .topbar{
+    font-size: 0.78rem;
+  }
+
+  .topbar-inner{
+    padding: 7px 0;
+  }
 }
